@@ -1,20 +1,20 @@
 import React, { useRef, useEffect } from 'react';
 import { Chart, registerables } from 'chart.js';
-
+import { useMediaQuery } from '@mui/material';
 Chart.register(...registerables);
 
 function BarChart() {
     const chartRef = useRef(null);
-
+    const isDesktop = useMediaQuery('(min-width:1000px)');
     useEffect(() => {
         const ctx = chartRef.current.getContext('2d');
         const chart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: [
-                    'January', 'February', 'March', 'April', 'May',
-                    'June', 'July', 'August', 'September', 'October',
-                    'November', 'December'
+                    'Jan', 'Feb', 'Mar', 'April', 'May',
+                    'June', 'July', 'Aug', 'Sep', 'Oct',
+                    'Nov', 'Dec'
                 ],
                 datasets: [
                     {
@@ -79,7 +79,7 @@ function BarChart() {
             padding: "10px",
             boxSizing: "border-box" // Ensure padding is included in the width
         }}>
-            <canvas ref={chartRef} style={{ height: '100%' }} />
+            <canvas ref={chartRef} style={{ height: isDesktop ? false : '100%' }} />
         </div>
     )
 

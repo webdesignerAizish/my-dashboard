@@ -25,14 +25,14 @@ function DrawerContent() {
             <div>
                 <h4>Utilities</h4>
 
-                <ButtonDrawer content="typography" icon={<FormatColorTextIcon />} />
-                <ButtonDrawer content="color" icon={<ColorLensIcon />} />
-                <ButtonDrawer content="shadow" icon={<InvertColorsIcon />} />
+                <ButtonDrawer content="typography" icon={<FormatColorTextIcon />} url="https://mui.com/material-ui/react-typography/" />
+                <ButtonDrawer content="color" icon={<ColorLensIcon />} url="https://mui.com/material-ui/customization/color/" />
+                <ButtonDrawer content="shadow" icon={<InvertColorsIcon />} url="https://mui.com/system/shadows/" />
                 <hr></hr>
             </div>
             <div>
                 <ButtonDrawer content="sample page" icon={<WebIcon />} />
-                <ButtonDrawer content="documentation" icon={<HelpOutlineIcon />} />
+                <ButtonDrawer content="documentation" icon={<HelpOutlineIcon />} url="https://mui.com/" />
                 <hr></hr>
             </div>
         </div>

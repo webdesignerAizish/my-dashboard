@@ -1,9 +1,11 @@
 import React from 'react'
 import { Button } from '@mui/material'
-function ButtonDrawer({ content, icon }) {
+function ButtonDrawer({ content, icon, url }) {
     return (
         <div>
             <Button
+                component="a" // Render as an anchor tag
+                href={url}
                 sx={{
                     color: '#697586', // Text color
                     borderColor: 'purple',

@@ -4,6 +4,7 @@ import Card from './Card';
 import TinyLineChart from './TinyLineChart';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import AutoAwesomeMotionIcon from '@mui/icons-material/AutoAwesomeMotion';
+import AreaChart from './AreaChar';
 import {
     AppBar,
     Toolbar,
@@ -11,13 +12,14 @@ import {
     Typography,
     Drawer,
     useMediaQuery,
+    Box
 
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import DrawerContent from './DrawerContent';
 function Menu() {
     const [open, setOpen] = React.useState(false);
-    const isDesktop = useMediaQuery('(min-width:1000px)');
+    const isDesktop = useMediaQuery('(min-width:1200px)');
     const toggleDrawer = () => {
         setOpen((prev) => !prev); // Changed to use functional update for toggling
     };
@@ -42,7 +44,7 @@ function Menu() {
                     '& .MuiDrawer-paper': {
                         zIndex: 1, // Ensure the drawer has a lower zIndex than the AppBar
                         paddingTop: "50px",
-                        width: '16%',
+                        width: isDesktop ? '16%' : "70%",
                     },
                 }}>
                 <DrawerContent></DrawerContent>
@@ -55,14 +57,14 @@ function Menu() {
                 }}
             >
                 {/* Your main content goes here */}
-                <div style={{ display: "flex", gap: '16px', flexWrap: "wrap" }}>
+                <div style={{ display: "flex", flexWrap: "wrap" }}>
                     <Card
                         color="#522EA8"
                         heading="$500.00"
                         paragraph="Total Earning"
                         icon={<BusinessCenterIcon />}
-
-                        width="400px"
+                        pcolor="white"
+                        width="340px"
                         bcolor="#4527A0"
                     ></Card>
                     <Card
@@ -71,12 +73,38 @@ function Menu() {
                         paragraph="Total Order"
                         icon={<AutoAwesomeMotionIcon />}
                         customComponent={<TinyLineChart></TinyLineChart>}
-
+                        width="340px"
+                        pcolor="white"
                         bcolor="#1565C0"
                     ></Card>
-                </div>
 
-                <BarChart />
+                    <Box width={isDesktop ? '280px' : "100%"}>
+                        <Card
+                            color="#90B9B5"
+
+                            paragraph="$203k Total Earning"
+                            icon={<BusinessCenterIcon />}
+                            height="80px"
+
+                            bcolor="#8C7AC4"
+                        ></Card>
+                        <Card
+                            color="#5e63b6"
+                            pcolor="black"
+                            paragraph="$203k Total Order"
+                            icon={<AutoAwesomeMotionIcon />}
+                            height="80px"
+
+                            bcolor="#a393eb"
+                        ></Card>
+                    </Box>
+                </div>
+                <div
+                    style={{ display: "flex", flexWrap: "wrap" }}
+                >
+                    <BarChart />
+                    <AreaChart></AreaChart>
+                </div>
             </div>
 
         </div >)

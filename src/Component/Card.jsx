@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Typography, IconButton, Grid } from '@mui/material';
 
-function Card({ color, heading, paragraph, icon, width, bcolor, customComponent }) {
+function Card({ color, heading, paragraph, icon, width, bcolor, customComponent, height, pcolor }) {
     return (
 
         <Box
@@ -10,12 +10,13 @@ function Card({ color, heading, paragraph, icon, width, bcolor, customComponent 
                 padding: 2,
                 borderRadius: 2,
                 maxWidth: width,
-
+                height: height,
                 textAlign: 'center',
+                margin: "8px",
             }}
         >
             <Grid container alignItems="center">
-                <Grid item xs={6} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'start' }}>
+                <Grid item xs={5} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'start' }}>
                     <IconButton
                         sx={{
                             backgroundColor: bcolor,
@@ -28,7 +29,7 @@ function Card({ color, heading, paragraph, icon, width, bcolor, customComponent 
                     <Typography variant="h4" component="h1" sx={{ color: '#fff', marginBottom: 0 }}>
                         {heading}
                     </Typography>
-                    <Typography variant="body1" sx={{ color: '#fff', marginBottom: 3 }}>
+                    <Typography variant="body1" sx={{ color: pcolor, marginBottom: 3 }}>
                         {paragraph}
                     </Typography>
                 </Grid>
